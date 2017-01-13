@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name: "
+            android:textSize="30dp"
+            android:layout_alignParentStart="true"
+            android:id="@+id/popup_text_name"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Input Name"
+            android:layout_toRightOf="@id/popup_text_name"
+            android:id="@+id/popup_edit_name"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Group: "
+            android:textSize="30dp"
+            android:layout_alignParentStart="true"
+            android:id="@+id/popup_text_group"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Input Group"
+            android:layout_toRightOf="@id/popup_text_group"
+            android:id="@+id/popup_edit_group"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Confirm"
+            android:id="@+id/popup_btn_confirm"
+            android:layout_weight="1"
+            android:theme="@style/MyButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Cancel"
+            android:id="@+id/popup_btn_cancel"
+            android:layout_weight="1"
+            android:theme="@style/MyButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            />
+    </LinearLayout>
+
+</LinearLayout>
