@@ -3,6 +3,7 @@ package net.azurewebsites.irrationnelle.test10;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -24,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnBasic;
     private Button btnDate;
     private Button btnTime;
+    private Button btnCustom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +55,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showTimeDialog();
+            }
+        });
+
+        btnCustom = (Button) findViewById(R.id.btn_custom);
+        btnCustom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showCustomDialog();
             }
         });
 
@@ -116,5 +128,38 @@ public class MainActivity extends AppCompatActivity {
 
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, timeSetListener, nowHour, nowMinute, true);
         timePickerDialog.show();
+    }
+
+    public void showCustomDialog() {
+        final Dialog customDialog = new Dialog(this);
+        customDialog.setContentView(R.layout.my_dialog); // inflate
+
+        // If you only typed findViewById without customDialog. , you call method call findViewById in MainActivity
+        ImageView customImg = (ImageView) customDialog.findViewById(R.id.custom_img);
+        TextView customText = (TextView) customDialog.findViewById(R.id.custom_text);
+        Button customBtnYes = (Button) customDialog.findViewById(R.id.custom_btn_confirm);
+        Button customBtnNo = (Button) customDialog.findViewById(R.id.custom_btn_cancel);
+
+        customImg.setImageResource(R.drawable.android);
+        customText.setText("Do you wanna android?");
+
+        customBtnYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Yeah! Thank you", Toast.LENGTH_SHORT).show();
+                customDialog.cancel();
+            }
+
+        });
+
+        customBtnNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "I'm sorry to hear that", Toast.LENGTH_SHORT).show();
+                customDialog.cancel();
+            }
+        });
+
+        customDialog.show();
     }
 }

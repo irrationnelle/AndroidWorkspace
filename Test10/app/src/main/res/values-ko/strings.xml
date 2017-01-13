@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_msg_ok">예</string>
+    <string name="custom_msg_no">아니오</string>
+</resources>
