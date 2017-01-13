@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="net.azurewebsites.irrationnelle.test04.MainActivity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="First Number"
+        android:id="@+id/first_number"
+        android:background="#EDE7F6"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="+"
+            android:layout_weight="1"
+            android:background="#CFD8DC"
+            android:id="@+id/plus"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="-"
+            android:layout_weight="1"
+            android:background="#CFD8DC"
+            android:id="@+id/minus"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="*"
+            android:layout_weight="1"
+            android:background="#CFD8DC"
+            android:id="@+id/multiple"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="/"
+            android:layout_weight="1"
+            android:background="#CFD8DC"
+            android:id="@+id/divide"/>
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Second Number"
+        android:id="@+id/second_number"
+        android:background="#EDE7F6"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="="
+            android:layout_alignParentLeft="true"
+            android:background="#CFD8DC"
+            android:id="@+id/equal"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/equal"
+            android:layout_centerInParent="true"
+            android:textSize="35dp"
+            android:text="###"
+            android:textAlignment="center"
+            android:background="#FFEBEE"
+            android:id="@+id/answer"/>
+    </RelativeLayout>
+</LinearLayout>
