@@ -1,17 +1,23 @@
 package net.azurewebsites.irrationnelle.slept_well;
 
 import android.databinding.DataBindingUtil;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
+
+import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import net.azurewebsites.irrationnelle.slept_well.databinding.ActivityMainBinding;
 import net.azurewebsites.irrationnelle.slept_well.databinding.ContentMainBinding;
+import net.azurewebsites.irrationnelle.slept_well.databinding.FabTestBinding;
 import net.azurewebsites.irrationnelle.slept_well.vo.User;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-//        setContentView(R.layout.activity_main);
+        FabTestBinding fabTestBinding = DataBindingUtil.setContentView(this, R.layout.fab_test);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -32,13 +39,19 @@ public class MainActivity extends AppCompatActivity {
                     .setAction("Action", null).show();
         });
 
-//       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
+        final View actionB = fabTestBinding.actionB;
+
+        FloatingActionButton actionC = new FloatingActionButton(getBaseContext());
+        actionC.setTitle("Hide/Show Action above");
+        actionC.setOnClickListener(v -> {
+            actionB.setVisibility(actionB.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
+        });
+
+        fabTestBinding.multipleActions.addButton(actionC);
+
+        fabTestBinding.actionA.setOnClickListener(v -> {
+            fabTestBinding.actionA.setTitle("Action A clicked");
+        });
     }
 
     @Override
